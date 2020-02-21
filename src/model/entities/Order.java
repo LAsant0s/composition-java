@@ -71,17 +71,20 @@ public class Order {
 	}
 	
 	public String toString() {
-		StringBuilder orderSumary = new StringBuilder();
-		orderSumary.append("ORDER SUMMARY:\n");
-		orderSumary.append("Order moment: " + sdf.format(moment) + "\n");
-		orderSumary.append("Order status: " + status + "\n");	
-		orderSumary.append("Client: " + client.toString() + "\n");
-		orderSumary.append("Order items:\n");
-		for(OrderItem item : items) {
-		orderSumary.append(items + "\n");
+		StringBuilder sb = new StringBuilder();
+		sb.append("Order moment: ");
+		sb.append(sdf.format(moment) + "\n");
+		sb.append("Order status: ");
+		sb.append(status + "\n");
+		sb.append("Client: ");
+		sb.append(client + "\n");
+		sb.append("Order items:\n");
+		for (OrderItem item : items) {
+			sb.append(item + "\n");
 		}
-		orderSumary.append("Total price: " + String.format("%.2f", total()));
-		return orderSumary.toString(); 
+		sb.append("Total price: $");
+		sb.append(String.format("%.2f", total()));
+		return sb.toString();
 	}
 	
 

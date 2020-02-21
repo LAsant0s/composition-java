@@ -16,7 +16,7 @@ public class Main {
 
 	public static void main(String[] args) throws ParseException {
 		Scanner sc = new Scanner(System.in);
-//		sc.useLocale(Locale.US);
+		sc.useLocale(Locale.US);
 		Locale.setDefault(Locale.US);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
@@ -26,7 +26,7 @@ public class Main {
 		System.out.print("Name: ");
 		String name = sc.nextLine(); 
 		System.out.print("Email: ");
-		String email = sc.nextLine(); 
+		String email = sc.nextLine(); 	
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date birthDate = sdf.parse(sc.next());
 		sc.nextLine();
@@ -40,7 +40,6 @@ public class Main {
 		OrderStatus status = OrderStatus.valueOf(sc.nextLine());
 		
 		Order order = new Order(new Date(), status, client);
-		Double numero = sc.nextDouble();
 		
 		System.out.print("How many items to this order? ");
 		int n = sc.nextInt();
@@ -61,8 +60,8 @@ public class Main {
 			OrderItem item = new OrderItem(quant, price, product); 
 			order.addItem(item);
 		}
-		System.out.println();
-		System.out.println(order.toString());	
+		System.out.println("ORDER SUMMARY: ");
+		System.out.println(order);	
 	
 	}
 
